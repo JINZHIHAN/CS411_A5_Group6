@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Search</title>
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    </head>
+    <body>
+        <form method="post">
+            <input id="calorie-input" type="text" name="calorie_input" placeholder="Calories" autocomplete="off"/>
+            <input id="go-btn" type="submit" value="Go!"/>
+        </form>
+        <p id="err-msg"></p>
+        <pre id="results">
+            {{ results }}
+        </pre>
+
+        <script>
+            $("form").submit((e) => {
+                var nameInput = $("#calorie-input").val();
+                if (!nameInput) {
+                    $("#err-msg").html("Please just enter a calorie amount");
+                    e.preventDefault();
+                    return false;
+                }
+                $("#results").html("Loading...");
+            });
+            $("#calorie-input").on("input", () => {
+                $("#err-msg").html("");
+                $("#results").html("");
+            });
+        </script>
+    </body>
+</html>
