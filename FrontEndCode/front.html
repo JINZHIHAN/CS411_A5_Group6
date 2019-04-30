@@ -8,39 +8,20 @@
 </script>
 
 </head>
-<!-- top nav -->
-<div id="mySidenav" class="sidenav">
-  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-  <a href="#">About</a>
-  <a href="#">Sign Up/Login</a>
-</div>
 
-\
-<body style = "text-align:center;">
+
+<body style = "text-align:center;" bgcolor="#3EDDA6">
 
 <div class="content">
 
 <h1>Chomp! Home Page</h1>
 
+<button type="button" 
+id="button" 
+style="font-size:20px; height:100px; width:200px;"
+background-color="#FA9A74" 
 
-<p id="para">Please enter your desired amount of calories</p>
-
-
-<input type="text" style="width:75px" id="calories" placeholder="Calories" autocomplete="off">
-<script>
-function giveRecipes() {
-    var input = document.getElementById("userInput").value;
-    if (input === 0){
-    	console.log('!');
-    }
-}
-</script>
-<button type="button" id="button" onclick="giveRecipes()" >Find recipes!</button><br />
-
-<p id="demo"></p>
-<script>
-document.getElementByID("demo").innerHTML = 5 + 6;
-</script>
+onclick="giveRecipes()" >Let's Get Cookin'</button><br />
 
 
 	
@@ -69,9 +50,11 @@ $('#category-list :checkbox').change(function()
 });
 </script>
 <p>
-Click <a href="http://www.facebook.com">here</a> to go to facebook.
-
-Click <a href="https://www.youtube.com/watch?v=CnmxqkANBHA">here</a> to go to youtube.
+Click <a href="http://www.facebook.com">here</a> to go to facebook.</p>
+<p>
+Click <a href="https://www.youtube.com/watch?v=CnmxqkANBHA">here</a> to go to youtube.</p>
+<p>
+Click <a href="http://www.google.com">here</a> to go to google.
 </p>
 </body>
 </html>
