@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Search</title>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+</head>
+<body>
+<form method="post">
+    <input id="id-input" type="text" name="id_input" placeholder="Meal id" autocomplete="off"/>
+    <input id="go-btn" type="submit" value="generate meal summary"/>
+</form>
+<p id="err-msg"></p>
+<pre id="results">
+            {{ results }}
+        </pre>
+
+<script>
+    $("form").submit((e) => {
+        var nameInput = $("#id-input").val();
+        if (!nameInput) {
+            $("#err-msg").html("Please enter an id number");
+            e.preventDefault();
+            return false;
+        }
+        $("#results").html("Loading...");
+    });
+    $("#id-input").on("input", () => {
+        $("#err-msg").html("");
+        $("#results").html("");
+    });
+</script>
+</body>
+</html>
