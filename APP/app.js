@@ -11,7 +11,6 @@ const passportSetup = require('./config/passport-setup');
 const passport = require('passport');
 const BASE_URL = 'https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/mealplans/generate';
 const RAPID_API_KEY = '14c1b8490bmsh6f286e1a513ef6dp1942a9jsn8f2e2db3c858';
-const FITBIT_URL_AUTH = 'https://www.fitbit.com/oauth2/authorize';
 // configure Express
 const app = express();
 
@@ -96,9 +95,9 @@ app.post('/', (req, res) => {
 //If not one, make a different call to give me an oAuth token
 //if expired, use special code
 
-app.listen(6969, () => {
-    console.log('App listening on port 6969!');
-    console.log('Navigate to http://localhost:6969');
+app.listen(3000, () => {
+    console.log('App listening on port 3000!');
+    console.log('Navigate to http://localhost:3000');
     // get the url
 
 
