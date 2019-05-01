@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset = "utf-8">
+        <title>OAuth test</title>
+
+    <style>
+
+        body{
+            background: #0d1521;
+            font-family: tahoma;
+            color: #989898;
+        }
+
+        #todo-table{
+            position: relative;
+            width: 95%;
+            background: #090d13;
+            margin: 0 auto;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        #todo-table form:after{
+            margin: 0;
+            content: '';
+            display: block;
+            clear: both;
+        }
+
+        input[type="text"]{
+            width: 70%;
+            padding: 20px;
+            background:#181c22;
+            border: 0;
+            float: left;
+            font-size: 20px;
+            color: #989898;
+        }
+
+        button{
+            padding: 20px;
+            width: 30%;
+            float: left;
+            background: #23282e;
+            border: 0;
+            box-sizing: border-box;
+            color: #fff;
+            cursor: pointer;
+            font-size: 20px;
+        }
+
+        ul{
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        li{
+            width: 100%;
+            padding: 20px;
+            box-sizing: border-box;
+            font-family: arial;
+            font-size: 20px;
+            cursor: pointer;
+            letter-spacing: 1px;
+        }
+
+        li:hover{
+            text-decoration: line-through;
+            background: rgba(0,0,0,0.2);
+        }
+
+        h1{
+            background: url(/logo.png) no-repeat center;
+            margin-bottom: 0;
+            text-indent: -10000px;
+        }
+    </style>
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    </head>
+    <body>
+
+        <nav>
+            <ul>
+                <% if(user) { %>
+                <li><a href = "/auth/logout">Logout</a></li>
+                <% } else { %>
+                <li><a href = "/auth/login">Login</a></li>
+                    <% } %>
+                <li><a href = "/">Homepage</a></li>
+                <li><a href = "/profile">Profile</a></li>
+                    <li><a href = "/generate"> Meal planner </a></li>
+
+            </ul>
+        </nav>
+        <header>
+            <h1>Welcome</h1>
+            <h2> Homepage </h2>
+        </header>
+    <main>
+       <p>Welcome to Chomped!</p>
+    </main>
+        <form method="post">
+            <input id="calorie-input" type="text" name="calorie_input" placeholder="Calories" autocomplete="off"/>
+            <input id="go-btn" type="submit" value="Go!"/>
+        </form>
+        <p id="err-msg"></p>
+        <pre id="results">
+            {{ results }}
+        </pre>
+
+        <script>
+            $("form").submit((e) => {
+                var nameInput = $("#calorie-input").val();
+                if (!nameInput) {
+                    $("#err-msg").html("Please just enter a calorie amount");
+                    e.preventDefault();
+                    return false;
+                }
+                $("#results").html("Loading...");
+            });
+            $("#calorie-input").on("input", () => {
+                $("#err-msg").html("");
+                $("#results").html("");
+            });
+        </script>
+    </body>
+</html>
